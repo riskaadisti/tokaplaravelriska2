@@ -18,7 +18,7 @@
 	&times;
 	</button>
 </div>
-@endif
+@endif2
 
 <div class="row">
 	<div class="col-md-6">

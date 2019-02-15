@@ -3,6 +3,17 @@
 @section('content')
 <h1>User</h1>
 <hr>
+
+@if(session('result') == 'success')
+<div class="alert alert-success alert-dismissible fade show">
+	<strong>Saved!</strong> Berhasil disimpan.
+	<button type="button" class="close" data-dismiss="alert">
+		&times;
+	</button>
+</div>
+@endif
+
+<div class="row">
 <div class="col-md-6 mb-3">
 	<a href="{{route('admin.user.add')}}" class="btn btn-primary">[+] Tambah</a>
 </div>
@@ -20,10 +31,11 @@
 		</div>
 	</form>
 </div>
+</div>
 
 <table class="table table-striped mb-3">
 	<tr>
-		<th>Name</th><th>Email</th>Akses<th>&nbsp;</th>
+		<th>Name</th><th>Email</th><th>Akses</th><th>&nbsp;</th>
 	</tr>
 	@foreach($data as $dt)
 	<tr>
@@ -32,7 +44,7 @@
 		<td>{{ $dt->akses }}</td>
 		<td>
 			<a href="#" class="btn btn-success btn-5m">
-				<i class="fa fa-w fa-eddit"></i>
+				<i class="fa fa-w fa-edit"></i>
 			</a>
 
 			@if( $dt->id != Auth::id() )
